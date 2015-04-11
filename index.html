@@ -6,6 +6,9 @@
     <title>spaceappschallenge | ISS Real Time</title>
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+    <script src="js/require.js"></script>
+    <script src="js/lightstreamer.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="TemplateData/UnityProgress.js"></script>
   </head>
   <body class="template">
@@ -85,6 +88,35 @@ code = code.replace(/Math_fround\(/g, '(').replace("'use asm'", "'almost asm'")
     document.body.appendChild(script);
   };
   codeXHR.send(null);
+}
+</script>
+    <script>
+    function connectToLiveStream(dataList) {
+require(["LightstreamerClient","Subscription"],function(LightstreamerClient,Subscription) {
+	var client = new LightstreamerClient("https://push.lightstreamer.com","ISSLIVE");
+	client.connect();
+	
+	//["USLAB000032","USLAB000035","USLAB000033","USLAB000036","USLAB000034","USLAB000037"]
+	var sub = new Subscription("MERGE",dataList.split(','),["Value"]);
+	client.subscribe(sub);
+	
+	sub.addListener({
+		onItemUpdate: function(update) {
+			//$("#"+update.getItemName()).text(update.getItemName() +":"+ update.getValue("Value"));
+			SendMessage("StreamListener","UpdateValue", update.getItemName() +":"+ update.getValue("Value") );
+		},
+		onSubscription: function() {
+			SendMessage("StreamListener","OnSubscription");
+		},
+		onSubscriptionError: function(code,message) {
+			SendMessage("StreamListener","OnSubscriptionError",code+":"+message);
+		},
+		onUnsubscription: function() {
+			SendMessage("StreamListener","OnUnsubscription");
+		}
+	});
+	
+});
 }
 </script>
   </body>

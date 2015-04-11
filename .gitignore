@@ -4,3 +4,11 @@
 .Trashes
 Icon?
 Thumbs.db
+
+Library/
+Build/
+Temp/
+
+*.csproj
+*.sln
+*.userprefs
