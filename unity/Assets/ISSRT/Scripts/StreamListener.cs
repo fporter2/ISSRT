@@ -82,11 +82,11 @@ public class StreamListener : MonoBehaviour {
 	public void OnSubscriptionError(string errorCodeMessage)
 	{
 		if (!string.IsNullOrEmpty (errorCodeMessage) && errorCodeMessage.Contains (":")) {
-			string [] splitKeyValuePair = errorCodeMessage.Split (':');
+			string [] splitErrorCodeMessage = errorCodeMessage.Split (':');
 
 			if(errorCodeMessage.Length > 1)
 			{
-				Debug.LogError(string.Format("Received error code #{0} with message: {1}",errorCodeMessage[0],errorCodeMessage[1]));
+				Debug.LogError(string.Format("Received error code #{0} with message: {1}",splitErrorCodeMessage[0],splitErrorCodeMessage[1]));
 			}
 		}
 	}

@@ -1,0 +1,191 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: earthShader_3
+  m_Shader: {fileID: 4800000, guid: 99a386c8af988214490012a0885a32ea, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  m_SavedProperties:
+    serializedVersion: 2
+    m_TexEnvs:
+      data:
+        first:
+          name: _MainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: e1ce0f11cba517b42bdd71d80fc0f834, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _LightColor
+        second:
+          m_Texture: {fileID: 2800000, guid: dff920bc19c824bddbde2d511521a68e, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _mainTex
+        second:
+          m_Texture: {fileID: 2800000, guid: e1ce0f11cba517b42bdd71d80fc0f834, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _lightColor
+        second:
+          m_Texture: {fileID: 2800000, guid: 99125f849533e1b45bbdd5249db60d10, type: 3}
+          m_Scale: {x: 1.00399995, y: 1.005}
+          m_Offset: {x: 0, y: -.00200000009}
+      data:
+        first:
+          name: _Lights
+        second:
+          m_Texture: {fileID: 2800000, guid: 99125f849533e1b45bbdd5249db60d10, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Normals
+        second:
+          m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+    m_Floats:
+      data:
+        first:
+          name: _Shininess
+        second: .078125
+      data:
+        first:
+          name: _LightScale
+        second: 1
+      data:
+        first:
+          name: _atmosFalloff
+        second: 3.5999999
+      data:
+        first:
+          name: _fCameraHeight
+        second: 0
+      data:
+        first:
+          name: _fCameraHeight2
+        second: 0
+      data:
+        first:
+          name: _fOuterRadius
+        second: 0
+      data:
+        first:
+          name: _fOuterRadius2
+        second: 0
+      data:
+        first:
+          name: _fInnerRadius
+        second: 0
+      data:
+        first:
+          name: _fInnerRadius2
+        second: 0
+      data:
+        first:
+          name: _fKrESun
+        second: 0
+      data:
+        first:
+          name: _fKmESun
+        second: 0
+      data:
+        first:
+          name: _fKr4PI
+        second: 0
+      data:
+        first:
+          name: _fKm4PI
+        second: 0
+      data:
+        first:
+          name: _fScale
+        second: 0
+      data:
+        first:
+          name: _fScaleDepth
+        second: 0
+      data:
+        first:
+          name: _fScaleOverScaleDepth
+        second: 0
+      data:
+        first:
+          name: _Samples
+        second: 0
+      data:
+        first:
+          name: _G
+        second: 0
+      data:
+        first:
+          name: _G2
+        second: 0
+      data:
+        first:
+          name: _AtmosRange
+        second: 1.34328365
+      data:
+        first:
+          name: _RimPower
+        second: 3
+      data:
+        first:
+          name: _AtmosFalloff
+        second: 2
+    m_Colors:
+      data:
+        first:
+          name: _Color
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: .128090888, g: .14203912, b: .149253726, a: 1}
+      data:
+        first:
+          name: _Emission
+        second: {r: .0632657707, g: .095848918, b: .119403005, a: 1}
+      data:
+        first:
+          name: _AtmosNear
+        second: {r: .25156787, g: .34817493, b: .727941155, a: 1}
+      data:
+        first:
+          name: _AtmosFar
+        second: {r: .661764741, g: .929041386, b: 1, a: 1}
+      data:
+        first:
+          name: _v4CameraPos
+        second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _v4LightDir
+        second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _cInvWaveLength
+        second: {r: 0, g: 0, b: 0, a: 0}
+      data:
+        first:
+          name: _DiffuseColor
+        second: {r: 1, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _RimColor
+        second: {r: .231343299, g: 1, b: 1, a: 1}
+--- !u!1002 &2100001
+EditorExtensionImpl:
+  serializedVersion: 6

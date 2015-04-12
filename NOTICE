@@ -1,2 +1,6 @@
 ISSRT
 Copyright 2015 Forrest Porter
+
+This software contains code derived from the
+C++ SGP4 Satellite Library (https://www.danrw.com/sgp4/)
+Copyright 2013 Daniel Warner <contact@danrw.com>
