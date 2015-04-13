@@ -99,6 +99,13 @@ public class StreamListener : MonoBehaviour {
 
 	void Start()
 	{
+		this.StartCoroutine (ConnectToStream ());
+	}
+
+	IEnumerator ConnectToStream()
+	{
+		// wait a bit or we will drop data
+		yield return new WaitForSeconds (0.3f);
 		// TODO: create better system to do connect/subscribe to server
 		Application.ExternalCall ("connectToLiveStream","USLAB000032,USLAB000035,USLAB000033,USLAB000036,USLAB000034,USLAB000037");
 	}

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System;
 using sgp4;
@@ -8,11 +9,36 @@ public class TestSgp4 : MonoBehaviour, IStreamSubscriber {
 	float scale = 1/12742.0f;
 	float scaleAltitude = 1 + 1/12742.0f;
 
-	public MeshRenderer earthRenderer;
-	public Transform sun;
-	public Transform iss;
-	public Transform sunPos;
+	[SerializeField]
+	MeshRenderer earthRenderer;
+
+	[SerializeField]
+	Transform sun;
+
+	[SerializeField]
+	Transform iss;
+
+	[SerializeField]
+	Transform sunPos;
+
+	// sun label fields
+	[SerializeField]
+	Text latField;
+	[SerializeField]
+	Text longField;
+	[SerializeField]
+	Text azField;
+	
+	// iss label fields
+	[SerializeField]
+	Text latField_iss;
+	[SerializeField]
+	Text longField_iss;
+	[SerializeField]
+	Text azField_iss;
+
 	DateTime time;
+
 	public float timeScale = 1;
 
 	public Vector3 issPos = Vector3.zero;
@@ -94,6 +120,13 @@ public class TestSgp4 : MonoBehaviour, IStreamSubscriber {
 			
 			Eci e = new Eci(DateTime.UtcNow,t);
 
+			if(latField && longField && azField)
+			{
+				latField.text = Util.RadiansToDegrees(t.latitude).ToString(".00");
+				longField.text = Util.RadiansToDegrees(t.longitude).ToString(".00");
+				azField.text = t.altitude.ToString(".00");
+			}
+
 			sun.transform.localPosition = this.transform.forward.normalized * (float)t.altitude * scale + this.transform.forward.normalized * earthRenderer.bounds.extents.z;
 			sun.transform.RotateAround(this.transform.position,transform.right,-(float)Util.RadiansToDegrees(t.latitude));
 			sun.transform.RotateAround(this.transform.position,transform.up,-(float)Util.RadiansToDegrees(t.longitude));
@@ -113,6 +146,14 @@ public class TestSgp4 : MonoBehaviour, IStreamSubscriber {
 		#endif
 		if (iss && issPosition != null) {
 			t = issPosition.ToGeodetic();
+
+			if(latField_iss && longField_iss && azField_iss)
+			{
+				latField_iss.text = Util.RadiansToDegrees(t.latitude).ToString(".00");
+				longField_iss.text = Util.RadiansToDegrees(t.longitude).ToString(".00");
+				azField_iss.text = t.altitude.ToString(".00");
+			}
+
 			
 			iss.transform.localPosition = this.transform.forward.normalized * (float)t.altitude * scale + this.transform.forward.normalized * earthRenderer.bounds.extents.z;
 			iss.transform.RotateAround(this.transform.position,transform.right,-(float)Util.RadiansToDegrees(t.latitude));
@@ -123,5 +164,11 @@ public class TestSgp4 : MonoBehaviour, IStreamSubscriber {
 			t = issPosition.ToGeodetic ();
 			//Debug.Log ("ISS:" + t.ToString());
 		}
+	}
+
+	public void OpenURL()
+	{
+		//Application.OpenURL ("");
+		Application.ExternalEval("window.open('https://github.com/fporter2/ISSRT','Information')");
 	}
 }

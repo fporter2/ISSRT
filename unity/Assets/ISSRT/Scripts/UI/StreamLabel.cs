@@ -51,7 +51,11 @@ public class StreamLabel : MonoBehaviour, IStreamSubscriber {
 	{
 		if (labelToUpdate != null)
 		{
-			labelToUpdate.text = eventArgs.RawValue;
+			double v = 0;
+			if(double.TryParse(eventArgs.RawValue, out v))
+			{
+				labelToUpdate.text = v.ToString(".00");
+			}
 		}
 	}
 	

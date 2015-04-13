@@ -71,7 +71,7 @@ Material:
       data:
         first:
           name: _LightScale
-        second: 1
+        second: .529999971
       data:
         first:
           name: _atmosFalloff
