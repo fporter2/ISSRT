@@ -3,6 +3,8 @@
 
 Project demo can be found [here](http://fporter2.github.io/ISSRT/)
 
+Video link [here](https://www.youtube.com/watch?v=mbknBLJOr1w)
+
 ## Description
 
 This is a 3D html5/webgl application that lets you see the ISS (using live data) and the sun.
@@ -22,7 +24,6 @@ This is a 3D html5/webgl application that lets you see the ISS (using live data)
 - Adding the moon position (and other celestial bodies)
 - Showing more of the live data in an interactive way
 - Handling Loss of Signal (LoS) for the live data
-
 
 
 ## Known Issues
