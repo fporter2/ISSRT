@@ -15,8 +15,8 @@ Module.expectedDataFileDownloads++;
       // worker
       PACKAGE_PATH = encodeURIComponent(location.pathname.toString().substring(0, location.pathname.toString().lastIndexOf('/')) + '/');
     }
-    var PACKAGE_NAME = 'ISSRT.data';
-    var REMOTE_PACKAGE_BASE = 'ISSRT.data';
+    var PACKAGE_NAME = 'ISSRT-min.data';
+    var REMOTE_PACKAGE_BASE = 'ISSRT-min.data';
     if (typeof Module['locateFilePackage'] === 'function' && !Module['locateFile']) {
       Module['locateFile'] = Module['locateFilePackage'];
       Module.printErr('warning: you defined Module.locateFilePackage, that has been renamed to Module.locateFile (using your locateFilePackage for now)');
@@ -24,8 +24,8 @@ Module.expectedDataFileDownloads++;
     var REMOTE_PACKAGE_NAME = typeof Module['locateFile'] === 'function' ?
                               Module['locateFile'](REMOTE_PACKAGE_BASE) :
                               ((Module['filePackagePrefixURL'] || '') + REMOTE_PACKAGE_BASE);
-    var REMOTE_PACKAGE_SIZE = 2255519;
-    var PACKAGE_UUID = 'e73b7004-0f9d-4880-a8bd-9847ab57d146';
+    var REMOTE_PACKAGE_SIZE = 37993331;
+    var PACKAGE_UUID = '3544bc6b-4b3b-499f-9654-806d7a1b13d9';
   
     function fetchRemotePackage(packageName, packageSize, callback, errback) {
       var xhr = new XMLHttpRequest();
@@ -123,11 +123,11 @@ Module['FS_createPath']('/', 'Resources', true, true);
         this.requests[this.name] = null;
       },
     };
-      new DataRequest(0, 155876, 0, 0).open('GET', '/mainData');
-    new DataRequest(155876, 155895, 0, 0).open('GET', '/methods_pointedto_by_uievents.xml');
-    new DataRequest(155895, 181039, 0, 0).open('GET', '/sharedassets0.assets');
-    new DataRequest(181039, 1741411, 0, 0).open('GET', '/Resources/unity_default_resources');
-    new DataRequest(1741411, 2255519, 0, 0).open('GET', '/Resources/unity_builtin_extra');
+      new DataRequest(0, 180268, 0, 0).open('GET', '/mainData');
+    new DataRequest(180268, 180627, 0, 0).open('GET', '/methods_pointedto_by_uievents.xml');
+    new DataRequest(180627, 35918851, 0, 0).open('GET', '/sharedassets0.assets');
+    new DataRequest(35918851, 37479223, 0, 0).open('GET', '/Resources/unity_default_resources');
+    new DataRequest(37479223, 37993331, 0, 0).open('GET', '/Resources/unity_builtin_extra');
 
     function processPackageData(arrayBuffer) {
       Module.finishedDataFileDownloads++;
@@ -142,10 +142,10 @@ Module['FS_createPath']('/', 'Resources', true, true);
           DataRequest.prototype.requests["/sharedassets0.assets"].onload();
           DataRequest.prototype.requests["/Resources/unity_default_resources"].onload();
           DataRequest.prototype.requests["/Resources/unity_builtin_extra"].onload();
-          Module['removeRunDependency']('datafile_ISSRT.data');
+          Module['removeRunDependency']('datafile_ISSRT-min.data');
 
     };
-    Module['addRunDependency']('datafile_ISSRT.data');
+    Module['addRunDependency']('datafile_ISSRT-min.data');
   
     if (!Module.preloadResults) Module.preloadResults = {};
   
