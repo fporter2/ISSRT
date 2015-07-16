@@ -27,6 +27,8 @@ using StreamListenerDelegate = System.Action<StreamListenerArgs>;
 /// </summary>
 public class StreamListener : MonoBehaviour {
 
+	private Dictionary<string,string> cache = new Dictionary<string, string> ();
+
 	//private event StreamListenerDelegate _UpdateValue;
 	private Dictionary<string,List<WeakReference>> eventSubscriptions = new Dictionary<string, List<WeakReference>>();
 
@@ -37,6 +39,10 @@ public class StreamListener : MonoBehaviour {
 			eventSubscriptions.Add(key,new List<WeakReference>());
 		}
 		eventSubscriptions [key].Add (new WeakReference (subscriber));
+
+		if (cache.ContainsKey (key)) {
+			subscriber.UpdateValues(new StreamListenerArgs(key, cache[key]));
+		}
 	}
 
 	/// <summary>
@@ -47,6 +53,9 @@ public class StreamListener : MonoBehaviour {
 	{
 		if (!string.IsNullOrEmpty (keyValuePair) && keyValuePair.Contains (":")) {
 			string [] splitKeyValuePair = keyValuePair.Split (':');
+
+			// store to cache
+			cache[splitKeyValuePair[0]] = splitKeyValuePair[1];
 
 			// if there are subscribtions to this event
 			if(eventSubscriptions.ContainsKey(splitKeyValuePair[0]))
